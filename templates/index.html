@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuLu - Old Films Filters</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>GuLu - Old Films Filters</h1>
+            <p>让现代视频穿越时光，重现经典年代风貌</p>
+            <p class="small">从1900年代默片到1990年代家庭录像，重现每个时代的独特影像风格</p>
+        </div>
+
+        <div class="section">
+            <h2>上传视频</h2>
+            <div class="upload-area" id="uploadArea">
+                <p>拖放视频文件到此处，或点击浏览</p>
+                <p class="small">支持 MP4, MOV, AVI, WebM</p>
+                <input type="file" id="fileInput" accept="video/*" style="display: none;">
+            </div>
+            <div id="fileInfo" class="hidden">
+                <p><strong>已选择:</strong> <span id="fileName"></span></p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>选择年代风格</h2>
+            <div class="decade-grid" id="decadeGrid">
+                <!-- 年代选项将通过JavaScript填充 -->
+            </div>
+
+            <!-- 所有年代的自定义设置面板 -->
+            <div class="customization-panel" id="customizationPanel">
+                <div class="customization-header">
+                    <h3>自定义 </h3>
+                    <span class="decade-badge" id="selectedDecadeBadge">1980年代</span>
+                    <span>滤镜参数</span>
+                </div>
+                <div id="customizationOptions">
+                    <!-- 动态自定义选项将在这里填充 -->
+                </div>
+            </div>
+
+            <button class="process-btn" id="processBtn" disabled>应用年代滤镜</button>
+
+            <div class="progress-bar hidden" id="progressBar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p id="statusText"></p>
+        </div>
+
+        <div class="section hidden" id="resultSection">
+            <h2>时光穿梭后的视频</h2>
+            <video class="video-preview" id="processedVideo" controls></video>
+            <div style="text-align: center;">
+                <a class="download-btn" id="downloadBtn" download>下载复古视频</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
