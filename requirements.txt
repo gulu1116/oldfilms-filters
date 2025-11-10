@@ -1,0 +1,8 @@
+flask==2.3.3
+flask-cors==4.0.0
+pyinstaller==6.2.0
+requests==2.31.0
+qrcode[pil]==7.4.2
+
+# Optional: For creating an installer
+# nsis==3.10.0
